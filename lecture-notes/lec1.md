@@ -87,7 +87,35 @@ double division(int x, int y){
   - And: `x && y`
   - Or: `x || y`
   - Not: !x
-  - Lazy evaluation
+  - Lazy evaluation (if trying x && y, if x is false then it will not even test y)
+
+- Arithmetic operations:
+  - addition, subtraction, multiplication, division, modulus (x % y)
+  - but must be careful of types
+
+- comparisons:
+  - equality `x == y`
+  - inequality `x != y`
+  - less than, greater than
+  - good practice to put constants first in comparison
+
+- bitwise operators:
+  - And: `x & y`
+  - Or: `x | y`
+  - Xor: `x ^ y`
+  - right shift by y: `x >> y` (likewise leftshift by y)
+  - dont confuse these with boolean operators
+
+- shortcuts:
+  - increment by one: `x++` 
+  - increment by y: `x += y`
+  - decrement by one: `x-`
+  - divide by y and assign: `x /= y`
+
+- other operators:
+  - variable size: `sizeof(x)`
+  - indirection
+  - conditional expression: `x ? y : z` (evaluates to y if x is true, otherwise evaluate to z, essentially ifelse)
 
 
 
