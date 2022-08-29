@@ -24,15 +24,42 @@
 ## Translating code (From Python)
 
 ### Python
+```
 def abs_val(x): 
   if x < 0:
     return x * -1
    return x
+```
    
 ### C
+```
 int abs_val(int x) {
   return x < 0 ? -x : x;
 }
+```
+
+differences:
+- scope style: {} (spaces do not matter for syntax)
+- lines end with ;
+- functions do not end with ;
+- Types! (int)
+- Operators
+
+## Data Types in C
+
+- every variable has a type (chosen at variable declaration, does not change)
+- every function has a type
+
+options:
+- int (long or short, signed or unsigned)
+- float
+- double
+- char
+- void (the typeless type)
+- no strings
+
+## Type conversions in C
+
 
 
 
