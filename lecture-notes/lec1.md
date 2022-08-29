@@ -78,5 +78,26 @@ double division(int x, int y){
 ```
 `division(5, 2)` will give us 2.0
 - implicit conversion will happen in the return instead of in the calculation
+- minimize conversions and make them explicit
+- turn on compiler warnings to be notified 
+
+## Operators in C
+
+- Boolean Operators:
+  - And: `x && y`
+  - Or: `x || y`
+  - Not: !x
+  - Lazy evaluation
+
+
+
+
+
+
+
+
+
+
+
 
 
