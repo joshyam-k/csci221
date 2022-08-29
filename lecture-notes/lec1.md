@@ -29,15 +29,13 @@ def abs_val(x):
   if x < 0:
     return x * -1
    return x
-```
-   
+``` 
 ### C
 ```
 int abs_val(int x) {
   return x < 0 ? -x : x;
 }
 ```
-
 differences:
 - scope style: {} (spaces do not matter for syntax)
 - lines end with ;
@@ -60,6 +58,25 @@ options:
 
 ## Type conversions in C
 
+variables can be converted between types
 
+```
+double mins_to_hours(int mins) {
+  return (double) mins / 60.0;
+}
+```
+These conversions can happen implicitly
+- variables are "promoted" to larger types
+
+**Do not let the compiler do implicit type conversions**
+
+ex:
+```
+double division(int x, int y){
+  return x / y;
+}
+```
+`division(5, 2)` will give us 2.0
+- implicit conversion will happen in the return instead of in the calculation
 
 
