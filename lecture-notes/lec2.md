@@ -184,11 +184,33 @@ C code + Makefile -> (preprocessor) Compiler -> Executable
 
 ### File inclusion
 
-- `#` include *filename*
+- `# include *filename*`
   - `<filename>` if file lives in a standard library 
   - `"filename"` for your files (will look in the directory that you're in)
 
-macro defitions, conditional compilation, macro functions, and more!
+### macros: macro defitions, macro functions
+
+`# define MACRO_NAME value`
+
+ex: `# define pi 3.14121592`
+
+importantly you do not need a value! also it literally is a replace all in terms of functionality
+  - you might not add a value if you want to be able to check if the object exists (see below)
+
+### conditional compilation
+
+check if macros are or are not defined
+
+`# ifdef MACRO_NAME`
+`# ifndef MACRO_NAME`
+
+so you can do
+
+`# ifndef INT_FUNCS.H`
+`# define INT_FUNC.H`
+... code ...
+`# endif`
+
 
 
 
