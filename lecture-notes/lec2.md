@@ -184,9 +184,9 @@ C code + Makefile -> (preprocessor) Compiler -> Executable
 
 ### File inclusion
 
-- `#` include filename
-- <filename> if file lives in a standard library 
-- "filename" for your files (will look in the directory that you're in)
+- `#` include *filename*
+  - `<filename>` if file lives in a standard library 
+  - `"filename"` for your files (will look in the directory that you're in)
 
 macro defitions, conditional compilation, macro functions, and more!
 
