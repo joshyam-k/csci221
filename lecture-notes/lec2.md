@@ -46,6 +46,175 @@ union number {
   - `n.i = 15`, `n.f = 3.14`, `int new_var = p.x` (last one will result in some weird conversion of 3.14 to an int) (we dont use unions much)
 
 
+### typedef
+  - so far we've had to use "data_type typename" every time we want to use one of these structures
+  - typedefs allow us to avoid this
+ 
+```
+typedef struct trees {
+  int height;
+  int age;
+ } tree;
+```
+  - can just use type name of typedef;d type `tree t;`
+  
+  
+## Control Structures in C
+
+### if statements
+  - standard functionality (controlled with {}) 
+  - 
+```
+if (condition) { 
+  operation; 
+  } 
+  else { 
+    operation; 
+  }   
+```
+  - else if must be constructed (no elif equivalent)
+
+### while loops
+```
+while (condition) {
+  operation;
+}
+```
+  - also supports do while loop
+
+```
+do {
+  operation;
+} while (condition);
+```
+  - ensures the operation is run at least once
+
+
+### for loops
+```
+for (state1; condition; state2) {
+  operation;
+}
+```
+  - runs statement 1 at the beginning
+  - checks the condition before starting an interation
+  - runs statement 2 at the end of the iteration
+  - so in reality it does this
+```
+state1;
+while (condition) {
+  operation;
+  state2;
+}
+```
+
+
+### switch-case structures
+  - designed to allow for choice of multiple options
+
+```
+switch (expression) {
+  case val1:
+    operation1;
+  case val2:
+    operation2;
+  default:
+    operation3;
+ }
+```
+  - tries to match expression against vals in order
+  - when a match is found, begin operations
+  - completes all following operations (matching val2 results in operation2 and operation3)
+
+### break
+  - leaves the current control structure
+  - no more loop operations
+ 
+### continue
+  - leaves the current control structure
+  - may be additional loop iterations
+```
+while (condition1) {
+  if (condition2) {
+    continue;
+  }
+}
+```
+  - in this case continue will leave the innermost control loop structure
+  - it will leave the if and go back and check condition1
+  - again, it affects the inner most loop! 
+
+
+Back to switch cases for a moment
+  - write something like this to run an if else type control flow using break;
+
+```
+switch (expression) {
+  case val1:
+    operation1;
+    break;
+  case val2:
+    operation2;
+    break;
+  default:
+    operation2;
+}
+```
+this time once a condition is met it will only run the single operation associated with that condition
+
+
+### Variable Scope
+- variables defined outside of functions are called global variables (try not to use them unless you have a really good reason for them)
+- it's better practice to define variables at the start of a function or loop in which they will be used
+
+
+## Compiling C
+
+You've written some code- what's next?
+
+### The C Preprocessor Language
+
+C code + Makefile -> (preprocessor) Compiler -> Executable 
+
+- typical C program consists of statements in two languages
+  - the C prepreocessor language (all directives start with #)
+  - the C proper
+- First thing the C compiler does is call the C preprocessor
+  - a program that processes all the C preprocessor directives
+
+### File inclusion
+
+- `#` include filename
+- <filename> if file lives in a standard library 
+- "filename" for your files (will look in the directory that you're in)
+
+macro defitions, conditional compilation, macro functions, and more!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
