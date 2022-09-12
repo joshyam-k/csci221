@@ -154,6 +154,8 @@ target: prerequisites
     recipe
 ```
 
+it's good practice to have a target with the name `clean` that removes everything that was created by your compilation!
+
 
 
 
