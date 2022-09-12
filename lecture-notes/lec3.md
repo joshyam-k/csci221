@@ -36,4 +36,34 @@ code
 This code will make sure that functions are not defined twice!
 
 
+## Physical Structures
+
+- Files are split into headers (.h) and body (.c)
+- `main()` must reside in a definition file and #include system and user headers
+
+### Headers vs Bodies
+
+Headers:
+- contain the interface
+- lists the functionalities and how to use them
+- contents: publicly used function declarations, data structures used outside the body, important constants, API documentation and assumptions (what not how)
+
+Bodies:
+- contains the implementation
+- the code that performs the functions
+- contents: private functions, data structures only used internally, documentation on implementation (how the code works)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
