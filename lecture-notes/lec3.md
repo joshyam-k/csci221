@@ -82,7 +82,7 @@ def run(arg_make, arg_print):
 
 Now in C form
 
-#### Header
+### Header
 don't include the body of a given function, simply define the function
 ```
 #include <stdbool.h>
