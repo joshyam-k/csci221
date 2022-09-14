@@ -95,7 +95,7 @@ This function does not always return 1 (if x is int_max, it returns 0)
 
 We are used to division on real numbers, but with integers it doesn't always work. We introduce a new operation, the modulus, to pick up the slack. We want to define the operations $x/y$ and $x % y$ such that 
 
-$(x/y) * y + (x %y) = x$ but this actually still isnt enough
+$(x/y) * y + (x \\% y) = x$ but this actually still isnt enough
 
 
 
