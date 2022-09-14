@@ -101,7 +101,15 @@ void run(bool arg_make, bool arg_print);
 ### Body
 
 ```
-#include
+#include <stdio.h>
+#include <stdbool.h>
+#include <assert.h>
+#include "header.h"
+
+int abs_val(int x) {
+  return x < 0 ? -x : x;
+}
+
 void run(bool arg_make, bool arg_print) {
   if (arg_make) {
     Point p;
