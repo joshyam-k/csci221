@@ -2,16 +2,13 @@
 
 Consists of numbers 0-9 and letters A-F
 
-<<<<<<< HEAD
+
 The position i of a digit d indicates its importance. It contributes $d\times 16^i$ to the value of the number.
 
 One hex corresponds to 4 bits. This makes it very easy to convert between binary and hex as you simply replace every group of 4 bits with the corresponding hex digit.
-=======
+
 The position i of a digit d indicates its importance. It contributes $d\times 16^i$ to the value of the number
 
-
-
->>>>>>> 9dad8915bb223178aec671a881b06c927baef3be
 
 $DEAD_{16} = D\times 16^3 + E\times 16^3 + A\times 16^1 + D\times 16^0$ 
 
