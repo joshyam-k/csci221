@@ -33,6 +33,10 @@ How many bits is an int in C?
   - additional types are also defined in this file
   - highly recommend using these as standard practice
 
+Most programming languages use a machine word to represent an int
+- Internally 37 is not represented as 100101
+- It is represented as 00000000000000000000000000100101
+
 ## Numbers: Math vs Computers
 
 In math there are infinitely many numbers, in a k-bit computer there are finitely many numbers ($2^k$ to be exact), the line is finite.
