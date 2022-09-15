@@ -97,11 +97,15 @@ int foo(int x) {
 
 Although we might be suspicious of this function failing to always return 1 because of potential overflow issues, this function will actually always return 1 due to the fact that the properties of modular arithmetic guarantee that $x + 1 = 1 + x$ no matter what.
 
+Modular arithmetic tells us that many numbers correspond to the same bit sequence
+
 ### Two's complement number system
 
 Any number is represented as a sequence of digits. The position i of digit d indicates its importance
 
 It contributes $d\times 2^i$ to the value of the number, except the last which contributes $-d\times 2^i$.
+
+Each k-bit machine word corresponds to a number between $-2^{k-1}$ and $2^{k-1} - 1$. So the leftmost bit tells the sign. 1 makes a number negative, 0 keeps it non-negative. It is commonly called the sign bit.
 
 100 ... 000 is the smallest number, -1 is represnted by 111 ... 111
 
@@ -116,7 +120,7 @@ int foo(signed int x) {
 }
 ```
 
-This function does not always return 1 (if x is int_max, it returns 0) 
+This function does not always return 1 due to the fact that x is a signed int. If x is the largest machine word on a machine then $x + 1$ loops the number back to the smallest machine word and so the function returns 0. i.e 011...111 + 000...001 returns 100...000 which is the smallest signed int because the first bit is the sign bit and makes the number negative.
 
 
 ### How does division work?
