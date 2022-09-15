@@ -2,7 +2,10 @@
 
 Consists of numbers 0-9 and letters A-F
 
-The poition i of a digit d indicates its importance. It contributes $d\times 16^i$ to the value of the number
+The position i of a digit d indicates its importance. It contributes $d\times 16^i$ to the value of the number
+
+
+
 
 $DEAD_{16} = D\times 16^3 + E\times 16^3 + A\times 16^1 + D\times 16^0$ 
 
