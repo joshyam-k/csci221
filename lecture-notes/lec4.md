@@ -37,15 +37,19 @@ Most programming languages use a machine word to represent an int
 - Internally 37 is not represented as 100101
 - It is represented as 00000000000000000000000000100101
 
+Thus a k-bit computer uses exactly k-bits to represent an int. We say that numbers have a fixed size in a computer
+
 ## Numbers: Math vs Computers
 
-In math there are infinitely many numbers, in a k-bit computer there are finitely many numbers ($2^k$ to be exact), the line is finite.
+In math there are infinitely many numbers, in a k-bit computer there are finitely many numbers ($2^k$ to be exact), the line is finite. 
+
+On a k-bit computer we can represent only $2^k$ distinct numbers.
 
 This means we can't represent numbers larger than what fits in k bits. Even if we avoid writing larger numbers in a program, they may emerge during computation.
 
 ### Overflow
 
-The result of adding two int's may not fit into a k bits word. We have an overflow when the result of an operation doesn't fit a machine word..
+The result of adding two int's may not fit into a k bits word. We have an overflow when the result of an operation doesn't fit in a machine word.
 
 How do we deal with this?
 - Raise an error or an exception
@@ -65,19 +69,33 @@ People instinctively use math when writing code so this is bad.
 
 Instead of aborting execution, just ignore the overflow bits, the result of the operation is what fits in the word.
 
-Throwing out the overflow bit amounts to subtracting some multiple from the result
+Throwing out the overflow bit amounts to subtracting some multiple from the result. In general we subtract as many multiples of $2^k$ as necessary so that the result fits in k-bits.
 
-In the example of $k = 4$ we subtract as many multiples of 16 $(2^4)$ as we had to remove. This is just modular arithmetic.
+In the example of $k = 4$ we subtract as many multiples of 16 $(2^4)$ as needed to make our number fit into k-bits. This just modular arithmetic. In fact, ignoring the overflow bits simply computes the result modulo $2^k$.
 
 #### Modular arithmetic
+
+Evaluate an expression normally, but return the remainder of dividing it by $n$. 5 modulo 3 is equal to 1. Results in numbers between 0 and $n-1$.
 
 ex when $k=4$, i.e we can count up to 16:
 
 $12 + 9 = 5$, $9 * 6 = 6$
 
-C uses modular arithmetic. Rather than viewing numbers as lying on an infinite line, we think of them as wrapping around a circle with n positions. We carry out computations normally but return the position of the remainder. 
+C uses modular arithmetic. Rather than viewing numbers as lying on an infinite line, we think of them as wrapping around a circle with n positions. We carry out computations normally but return the position of the result on a modular arthmetic circle. 
 
-Usually this modular arithmetic saves us from experiencing math failures in our code. This is because of all the nice properties of modular arithmetic like associativity and what not. 
+Usually this modular arithmetic saves us from experiencing math failures in our code. This is because of all the nice properties of modular arithmetic like associativity and what not. Here's an example
+
+```
+int foo(int x) {
+    int z = 1 + x
+    if (x + 1 = z)
+	return 1;
+    else
+	return 0;
+}
+```
+
+Although we might be suspicious of this function failing to always return 1 because of potential overflow issues, this function will actually always return 1 due to the fact that the properties of modular arithmetic guarantee that $x + 1 = 1 + x$ no matter what.
 
 ### Two's complement number system
 
