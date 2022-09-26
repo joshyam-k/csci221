@@ -146,7 +146,7 @@ variables on the stack are removed with frame
 - using the function `free();`
 - `free(y);` removes the data block pointed to by y from your program
 - any data not freed is still treated as in-use by system (known as a memory leak)
-
+- don't free more than once!
 
 
 
