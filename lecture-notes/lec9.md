@@ -110,8 +110,15 @@ Version Control
 
 Git
 - a version control system
-- git init turns the current folder into a new repository
-- git clone copies an existing repository into your current folder
+- `git init` turns the current folder into a new repository
+- `git clone` copies an existing repository into your current folder
+- `git status` tells you where you are in the add, commit, push process
+- `git log` shows commit history
+- `git diff` shows the changes youve made
+- `git rm` stages files to be removes
+- `git reset HEAD <file_name>` unstages `file_name` from the commit
+- `git revert <commit_hash>` creates a new commit where everything is the same as the commit with commit_hash
+- `git checkout <file_name>` is used to reset any changes made to a file to previous commit
 
 
 
