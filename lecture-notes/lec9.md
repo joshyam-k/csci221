@@ -110,7 +110,8 @@ Version Control
 
 Git
 - a version control system
-
+- git init turns the current folder into a new repository
+- git clone copies an existing repository into your current folder
 
 
 
