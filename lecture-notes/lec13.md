@@ -135,6 +135,7 @@ Memory access
 - floating point loads and stores for accessing FP registers
 - displacement based addressing mode
 
+Importantly if you load half-words or bytes you store lowest 16 bits and 8 bits respectively of whatever is at that register
 Data Transfer Instructions
 - Data transfer instructions have three parts
     - operator name (transfer size)
@@ -184,6 +185,8 @@ Alignment
 
 Control Flow
 - Conditional branch instructions are known as branches
+- Basic block:
+    - maximal sequence of instructions without branches or branch targets
 - unconditional changes in the control flow are called jumps
 - the target of the branch/jump is a label
 
@@ -210,12 +213,49 @@ Exit:
 
 Other comparisons (see slides)
 - register is "set" to 1 if a condition is met (`slt`, etc)
+- can do with immediate values as well as unsigned values
 
+## Assembly Continued
 
+Reminder: Assembly connects your C programming to your hardware!
 
+consider this C code:
 
+```
+int sum_pow2(int b, int c){
+    int pow2[8] = {1,2,4,8,16,32,64,128};
+    int a, ret;
+    a = b + c;
+    if (a < 8){
+        ret = pow2[a];
+    } else {
+        ret = 0;        
+    }
+    return(ret);
+}
+```
 
+We can write this in assembly as
 
+```
+sum pow2:
+        addu $a0, $a0, $a1  \\ $a0 = b, $a1 = c and a = b + c, $a0 = a
+        slti $v0, $a0, 8    \\ $v0 = a < 8
+        beq $v0, $zero, Exceed  \\ go to exceed if $v0 == 0
+        addiu $v1, $sp, 8   \\ $v1 is the address of pow2
+        sll $v0, $a0, 2 \\ shift left the value at a0 by 2 which multiplies by powers of 2. so $v0 = a*4
+        addu $v0, $v0, $v1 \\ $v0 = pow2 + a*4
+        lw $v0, 0($v0)  \\ $v0 is pow2[a]
+        j Return
+Exceed: addu $v0, $zero, $zero  \\ $v0 = 0
+Return: jr ra   \\ jr is jump to register 
+```
 
+Why dont we have a branch "less than" instruction for comparing two registers?
+- such an instruction would be much more complicated
+- assembly wants to do everyhing "in once cycle of a clock"
 
+Loop Efficiency
+- control transfer insturctions are very expensive
+- how man control transfer instructions does this code need?
 
