@@ -108,9 +108,40 @@ new ones
     - means that the pointer does not point to a value
     - if you dereference `nullptr` it throws an expection
     - all that has changed here is the name lol
-- allocating data
-    - 
+- allocating data to the heap
+    - C++ keword for allocating data: `new` 
+    - this takes as input the type of data desired
+    - the function returns the address of the start of the allocated block
+    - `int* an_int = new int;`  // allocate one element
+    - `int* an_array = new int[length_of_array];` // allocate array
+    - memory is initialzed to the default value of the type you're trying to create
+- deallocating data on the heap
+    - now in C++ we use the delete keyword 
+    - `int* y = new int;`
+    - `delete y;`
+    - removes the data block pointed to by y from the program
+    - for arrays use `delete []`
 
+### Pass by value vs pass by reference
+
+C++ is a language which can do pass by reference using pointers, but you can also do it with reference semantics
+- uses `&` in function declaration (not in call)
+
+this is telling our function that our arguments are ints, but are being passed as if they are pointers
+```
+void swap(int& a, int& b){
+    int temp = a;
+    a = b;
+    b = temp;
+}
+```
+
+you can act like you passed values in terms of your syntax, while allowing the behavior to act as though you passed pointers.
+
+### Default arguments
+
+- supplying a default value makes an argument optional
+- all arguments with default values must appear last in the list
 
 
 
