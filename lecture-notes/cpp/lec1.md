@@ -97,7 +97,20 @@ new ones
     - logical operators take bools as input
     - does this mean we have to change our conditions? (no, type-casting helps us)
 - strings
-    - 
+    - C++ supports C strings (arrays of characters with NUL character)
+    - C++ also has a designated string type (requires `#include <string>`)
+        - acts like an array of characters
+        - `string name = "josh yam"`
+        - can also access using methods `name[3];` \\ h
+    - how do we know which type of string we have?
+        - any literal string like "hi there" is a C string
+        - to convert between the two types: `string("text")` (C string to C++ string)
+    - concatenate using `+` or `+=`
+    - `string s1 = "Ty";` `sl += "ler"; \\ "Tyler"`
+    - strings are mutable and can be changed `s1[4] = '@` \\  Tyle@
+    - If you get bugs they are likely due to type errors (trying to do things on C strings that can only be done on the C++ string type)
+    - strings are classes that have methods
+        - `string_name.method_name(arguments)`
 
 
 ### Pointers in C++
@@ -143,6 +156,26 @@ you can act like you passed values in terms of your syntax, while allowing the b
 - supplying a default value makes an argument optional
 - all arguments with default values must appear last in the list
 
+### Console Input and Output
+
+Done through streams
+- a stream can be thought of as a flow of objects
+- input involves taking objects from the stream
+- output involves adding objects to the stream
+- makes use of `<<` and `>>` operators
+- also used for file input/output
+
+Console Output
+- done using the `cout` stream
+- `cout << expression << expression ...`
+- `cout << "You are " << age << " years old"` (does not require strings as input)
+- ending lines done using `endl` (same as `\n` but more compatible with all operating systems)
+- `cerr` for error mesages
+
+Console Input
+- `cin` stream
+- `cin >> string_variable;`
+- performs type conversion (consumes and discards leading whitespace, for numeric data it stops at first character that does not match type)
 
 
 
