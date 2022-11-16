@@ -257,6 +257,48 @@ point2d point2d::operator+(point2d other){
 ```
 
 
+### Static class members
 
+*not* associated with a particular instance
 
+```
+class counter{
+private:
+    int count;
+public:
+    counter();
+    void increment(int);
+    int read()
+}
+counter::counter(){
+    count = 0;
+}
+counter::increment(int val){
+    count += val;
+}
+counter::read(){
+    return count;
+}
+```
 
+now if we do
+
+```
+counter c1();
+counter c2();
+
+c1.increment(5);
+cout << c1.read()   // 5
+cout << c2.read()   // 0
+```
+
+if instead we made it `static int count = 0;` and change nothing else and run
+
+```
+cout << c1.read()   // 5 
+cout << c2.read()   // 5
+```
+
+this happens because `c1.count` is the same thing as `c2.count` if count is static
+- static variables have one instance total, shared between all instances of the class
+- similarly with static methods
